@@ -4,4 +4,6 @@ class UserRegisRequest(BaseModel):
     email : str
     password : str
 
-class UserLoginRequest()
+class UserLoginRequest(BaseModel):
+    email : str
+    password : str
