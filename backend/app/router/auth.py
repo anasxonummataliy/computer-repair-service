@@ -8,5 +8,9 @@ router = APIRouter(
     tags=["Auth"]
 )
 
+@router.get('')
+async def registration():
+    pass
+
 
 
