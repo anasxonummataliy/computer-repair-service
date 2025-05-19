@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biznes kabineti - Xizmatlar Boshqaruv Tizimi</title>
+    <link rel="stylesheet" href="../../home/style.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../../home/index.html">Bosh sahifa</a></li>
+                    <li><a href="#" class="user-menu-btn">
+                            <i class="fas fa-building"></i> <span id="companyName">Kompaniya</span>
+                        </a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 id="sidebarCompanyName">Kompaniya</h3>
+                    <p>Biznes foydalanuvchi</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#" data-section="company-orders"><i class="fas fa-shopping-cart"></i>
+                            Buyurtmalar</a></li>
+                    <li><a href="#" data-section="employees"><i class="fas fa-users"></i> Xodimlar</a></li>
+                    <li><a href="#" data-section="company-profile"><i class="fas fa-building"></i> Kompaniya</a></li>
+                    <li><a href="#" data-section="reports"><i class="fas fa-chart-bar"></i> Hisobotlar</a></li>
+                    <li><a href="#" data-section="business-contact"><i class="fas fa-envelope"></i> Bog'lanish</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="company-orders" class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Kompaniya buyurtmalari</h2>
+                </div>
+                <div class="orders-filter">
+                    <div class="filter-group">
+                        <label for="companyStatusFilter">Status:</label>
+                        <select id="companyStatusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="pending">Kutilmoqda</option>
+                            <option value="in-progress">Jarayonda</option>
+                            <option value="completed">Yakunlangan</option>
+                            <option value="cancelled">Bekor qilingan</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="companyDateFilter">Sana:</label>
+                        <select id="companyDateFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="today">Bugun</option>
+                            <option value="week">Shu hafta</option>
+                            <option value="month">Shu oy</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm" id="refreshCompanyOrders"><i class="fas fa-sync-alt"></i>
+                        Yangilash</button>
+                </div>
+                <div class="orders-list" id="companyOrdersList">
+                    <!-- Company orders will be loaded dynamically -->
+                </div>
+            </section>
+
+            <section id="employees" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Xodimlar</h2>
+                    <button class="btn btn-primary" id="addEmployeeBtn"><i class="fas fa-plus"></i> Yangi xodim</button>
+                </div>
+                <div class="employees-list" id="employeesList">
+                    <!-- Employees will be loaded dynamically -->
+                </div>
+
+                <div id="employeeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="employeeModalTitle">Yangi xodim qo'shish</h2>
+                        <form id="employeeForm">
+                            <input type="hidden" id="employeeId" name="id">
+                            <div class="form-group">
+                                <label for="employeeFullName">To'liq ism</label>
+                                <input type="text" id="employeeFullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeEmail">Email</label>
+                                <input type="email" id="employeeEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeePhone">Telefon raqam</label>
+                                <input type="tel" id="employeePhone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeePosition">Lavozim</label>
+                                <input type="text" id="employeePosition" name="position" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeePassword">Parol</label>
+                                <input type="password" id="employeePassword" name="password">
+                                <small>Mavjud xodim uchun bo'sh qoldirilsa, parol o'zgartirilmaydi</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="company-profile" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Kompaniya ma'lumotlari</h2>
+                </div>
+                <form id="companyProfileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="companyProfileName">Kompaniya nomi</label>
+                        <input type="text" id="companyProfileName" name="companyName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyProfileAddress">Manzil</label>
+                        <input type="text" id="companyProfileAddress" name="companyAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyProfilePhone">Telefon raqam</label>
+                        <input type="tel" id="companyProfilePhone" name="companyPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyProfileEmail">Email</label>
+                        <input type="email" id="companyProfileEmail" name="companyEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyProfileDescription">Kompaniya haqida</label>
+                        <textarea id="companyProfileDescription" name="companyDescription" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                </form>
+            </section>
+
+            <section id="reports" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Hisobotlar</h2>
+                </div>
+                <div class="reports-container">
+                    <div class="report-card">
+                        <h3>Eng ko'p so'ralgan xizmatlar</h3>
+                        <div class="chart-container">
+                            <canvas id="servicesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Buyurtmalar statistikasi</h3>
+                        <div class="chart-container">
+                            <canvas id="ordersChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Xodimlar faolligi</h3>
+                        <div class="chart-container">
+                            <canvas id="employeesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="business-contact" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Bog'lanish</h2>
+                </div>
+                <form id="businessContactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="businessContactRecipient">Qabul qiluvchi</label>
+                        <select id="businessContactRecipient" name="recipient">
+                            <option value="admin">Admin</option>
+                            <option value="master">Master</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessContactSubject">Mavzu</label>
+                        <input type="text" id="businessContactSubject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessContactMessage">Xabar</label>
+                        <textarea id="businessContactMessage" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Yuborish</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 XizmatPro. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/business.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

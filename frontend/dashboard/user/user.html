@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foydalanuvchi kabineti - Xizmatlar Boshqaruv Tizimi</title>
+    <link rel="stylesheet" href="../../home/style.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Bosh sahifa</a></li>
+                    <li><a href="#" class="user-menu-btn">
+                            <i class="fas fa-user-circle"></i> <span id="userName">Foydalanuvchi</span>
+                        </a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 id="sidebarUserName">Foydalanuvchi</h3>
+                    <p>Oddiy foydalanuvchi</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#" data-section="orders"><i class="fas fa-shopping-cart"></i>
+                            Buyurtmalar</a></li>
+                    <li><a href="#" data-section="new-order"><i class="fas fa-plus-circle"></i> Yangi buyurtma</a></li>
+                    <li><a href="#" data-section="profile"><i class="fas fa-user"></i> Profil</a></li>
+                    <li><a href="#" data-section="contact"><i class="fas fa-envelope"></i> Bog'lanish</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="orders" class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Mening buyurtmalarim</h2>
+                </div>
+                <div class="orders-filter">
+                    <div class="filter-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="pending">Kutilmoqda</option>
+                            <option value="in-progress">Jarayonda</option>
+                            <option value="completed">Yakunlangan</option>
+                            <option value="cancelled">Bekor qilingan</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateFilter">Sana:</label>
+                        <select id="dateFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="today">Bugun</option>
+                            <option value="week">Shu hafta</option>
+                            <option value="month">Shu oy</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm" id="refreshOrders"><i class="fas fa-sync-alt"></i> Yangilash</button>
+                </div>
+                <div class="orders-list" id="ordersList">
+                    <!-- Orders will be loaded dynamically -->
+                </div>
+            </section>
+
+            <section id="new-order" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Yangi buyurtma berish</h2>
+                </div>
+                <form id="newOrderForm" class="order-form">
+                    <div class="form-group">
+                        <label for="serviceType">Xizmat turi</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">Xizmat turini tanlang</option>
+                            <!-- Services will be loaded dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderAddress">Manzil</label>
+                        <input type="text" id="orderAddress" name="orderAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderDate">Sana</label>
+                        <input type="date" id="orderDate" name="orderDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderTime">Vaqt</label>
+                        <input type="time" id="orderTime" name="orderTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderDescription">Qo'shimcha ma'lumot</label>
+                        <textarea id="orderDescription" name="orderDescription" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Buyurtma berish</button>
+                </form>
+            </section>
+
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Profil ma'lumotlari</h2>
+                </div>
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="profileFullName">To'liq ism</label>
+                        <input type="text" id="profileFullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Telefon raqam</label>
+                        <input type="tel" id="profilePhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAddress">Manzil</label>
+                        <input type="text" id="profileAddress" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="currentPassword">Joriy parol</label>
+                        <input type="password" id="currentPassword" name="currentPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Yangi parol</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPassword">Yangi parolni tasdiqlash</label>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                </form>
+            </section>
+
+            <section id="contact" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Bog'lanish</h2>
+                </div>
+                <form id="dashboardContactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="contactRecipient">Qabul qiluvchi</label>
+                        <select id="contactRecipient" name="recipient">
+                            <option value="admin">Admin</option>
+                            <option value="master">Master</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Mavzu</label>
+                        <input type="text" id="contactSubject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Xabar</label>
+                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Yuborish</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 XizmatPro. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

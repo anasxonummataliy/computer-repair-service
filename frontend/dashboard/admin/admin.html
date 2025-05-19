@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin paneli - Xizmatlar Boshqaruv Tizimi</title>
+    <link rel="stylesheet" href="../../home/style.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../../home/index.html">Bosh sahifa</a></li>
+                    <li><a href="#" class="user-menu-btn">
+                            <i class="fas fa-user-shield"></i> <span id="adminName">Admin</span>
+                        </a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 id="sidebarAdminName">Admin</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#" data-section="admin-dashboard"><i class="fas fa-tachometer-alt"></i>
+                            Boshqaruv paneli</a></li>
+                    <li><a href="#" data-section="users"><i class="fas fa-users"></i> Foydalanuvchilar</a></li>
+                    <li><a href="#" data-section="services"><i class="fas fa-tools"></i> Xizmatlar</a></li>
+                    <li><a href="#" data-section="all-orders"><i class="fas fa-shopping-cart"></i> Buyurtmalar</a></li>
+                    <li><a href="#" data-section="masters"><i class="fas fa-user-tie"></i> Masterlar</a></li>
+                    <li><a href="#" data-section="statistics"><i class="fas fa-chart-bar"></i> Statistika</a></li>
+                    <li><a href="#" data-section="messages"><i class="fas fa-envelope"></i> Xabarlar</a></li>
+                    <li><a href="#" id="adminLogoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="admin-dashboard" class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Boshqaruv paneli</h2>
+                </div>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Foydalanuvchilar</h3>
+                            <p id="totalUsers">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Buyurtmalar</h3>
+                            <p id="totalOrders">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Xizmatlar</h3>
+                            <p id="totalServices">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Masterlar</h3>
+                            <p id="totalMasters">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>So'nggi faoliyat</h3>
+                    <div class="activity-list" id="recentActivity">
+                        <!-- Recent activity will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Tezkor harakatlar</h3>
+                    <div class="actions-grid">
+                        <a href="#" class="action-card" data-section="users">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Foydalanuvchi qo'shish</span>
+                        </a>
+                        <a href="#" class="action-card" data-section="services">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Xizmat qo'shish</span>
+                        </a>
+                        <a href="#" class="action-card" data-section="masters">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Master qo'shish</span>
+                        </a>
+                        <a href="#" class="action-card" data-section="all-orders">
+                            <i class="fas fa-tasks"></i>
+                            <span>Buyurtmalarni boshqarish</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Foydalanuvchilar</h2>
+                    <button class="btn btn-primary" id="addUserBtn"><i class="fas fa-plus"></i> Yangi
+                        foydalanuvchi</button>
+                </div>
+                <div class="users-filter">
+                    <div class="filter-group">
+                        <label for="userTypeFilter">Turi:</label>
+                        <select id="userTypeFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="regular">Oddiy</option>
+                            <option value="business">Biznes</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="userStatusFilter">Status:</label>
+                        <select id="userStatusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="active">Faol</option>
+                            <option value="inactive">Nofaol</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="userSearch" placeholder="Qidirish...">
+                        <button class="btn btn-sm" id="userSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="users-list" id="usersList">
+                    <!-- Users will be loaded dynamically -->
+                </div>
+
+                <div id="userModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="userModalTitle">Yangi foydalanuvchi qo'shish</h2>
+                        <form id="userForm">
+                            <input type="hidden" id="userId" name="id">
+                            <div class="form-group">
+                                <label for="userFullName">To'liq ism</label>
+                                <input type="text" id="userFullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email</label>
+                                <input type="email" id="userEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userPhone">Telefon raqam</label>
+                                <input type="tel" id="userPhone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userRole">Foydalanuvchi turi</label>
+                                <select id="userRole" name="role" required>
+                                    <option value="regular">Oddiy foydalanuvchi</option>
+                                    <option value="business">Biznes foydalanuvchi</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                            <div id="userBusinessFields" class="hidden">
+                                <div class="form-group">
+                                    <label for="userCompanyName">Kompaniya nomi</label>
+                                    <input type="text" id="userCompanyName" name="companyName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userCompanyAddress">Kompaniya manzili</label>
+                                    <input type="text" id="userCompanyAddress" name="companyAddress">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userPassword">Parol</label>
+                                <input type="password" id="userPassword" name="password">
+                                <small>Mavjud foydalanuvchi uchun bo'sh qoldirilsa, parol o'zgartirilmaydi</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="userStatus">Status</label>
+                                <select id="userStatus" name="status" required>
+                                    <option value="active">Faol</option>
+                                    <option value="inactive">Nofaol</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Xizmatlar</h2>
+                    <button class="btn btn-primary" id="addServiceBtn"><i class="fas fa-plus"></i> Yangi xizmat</button>
+                </div>
+                <div class="services-list" id="adminServicesList">
+                    <!-- Services will be loaded dynamically -->
+                </div>
+
+                <div id="serviceModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="serviceModalTitle">Yangi xizmat qo'shish</h2>
+                        <form id="serviceForm">
+                            <input type="hidden" id="serviceId" name="id">
+                            <div class="form-group">
+                                <label for="serviceName">Xizmat nomi</label>
+                                <input type="text" id="serviceName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceDescription">Ta'rif</label>
+                                <textarea id="serviceDescription" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="servicePrice">Narx</label>
+                                <input type="number" id="servicePrice" name="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceCategory">Kategoriya</label>
+                                <input type="text" id="serviceCategory" name="category" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceIcon">Ikonka (Font Awesome kodi)</label>
+                                <input type="text" id="serviceIcon" name="icon" placeholder="fa-wrench">
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceStatus">Status</label>
+                                <select id="serviceStatus" name="status" required>
+                                    <option value="active">Faol</option>
+                                    <option value="inactive">Nofaol</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="all-orders" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Buyurtmalar</h2>
+                </div>
+                <div class="orders-filter">
+                    <div class="filter-group">
+                        <label for="adminOrderStatusFilter">Status:</label>
+                        <select id="adminOrderStatusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="pending">Kutilmoqda</option>
+                            <option value="assigned">Master tayinlangan</option>
+                            <option value="in-progress">Jarayonda</option>
+                            <option value="completed">Yakunlangan</option>
+                            <option value="cancelled">Bekor qilingan</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="adminOrderDateFilter">Sana:</label>
+                        <select id="adminOrderDateFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="today">Bugun</option>
+                            <option value="week">Shu hafta</option>
+                            <option value="month">Shu oy</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="orderSearch" placeholder="Qidirish...">
+                        <button class="btn btn-sm" id="orderSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="orders-list" id="adminOrdersList">
+                    <!-- Orders will be loaded dynamically -->
+                </div>
+
+                <div id="orderModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Buyurtma ma'lumotlari</h2>
+                        <div id="orderDetails">
+                            <!-- Order details will be loaded dynamically -->
+                        </div>
+                        <div class="order-actions">
+                            <div class="form-group">
+                                <label for="assignMaster">Master tayinlash</label>
+                                <select id="assignMaster">
+                                    <option value="">Masterni tanlang</option>
+                                    <!-- Masters will be loaded dynamically -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderStatus">Status o'zgartirish</label>
+                                <select id="orderStatus">
+                                    <option value="pending">Kutilmoqda</option>
+                                    <option value="assigned">Master tayinlangan</option>
+                                    <option value="in-progress">Jarayonda</option>
+                                    <option value="completed">Yakunlangan</option>
+                                    <option value="cancelled">Bekor qilingan</option>
+                                </select>
+                            </div>
+                            <button id="updateOrderBtn" class="btn btn-primary">Saqlash</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="masters" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Masterlar</h2>
+                    <button class="btn btn-primary" id="addMasterBtn"><i class="fas fa-plus"></i> Yangi master</button>
+                </div>
+                <div class="masters-filter">
+                    <div class="filter-group">
+                        <label for="masterStatusFilter">Status:</label>
+                        <select id="masterStatusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="active">Faol</option>
+                            <option value="inactive">Nofaol</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="masterSpecialtyFilter">Mutaxassislik:</label>
+                        <select id="masterSpecialtyFilter">
+                            <option value="all">Barchasi</option>
+                            <!-- Specialties will be loaded dynamically -->
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="masterSearch" placeholder="Qidirish...">
+                        <button class="btn btn-sm" id="masterSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="masters-list" id="mastersList">
+                    <!-- Masters will be loaded dynamically -->
+                </div>
+
+                <div id="masterModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="masterModalTitle">Yangi master qo'shish</h2>
+                        <form id="masterForm">
+                            <input type="hidden" id="masterId" name="id">
+                            <div class="form-group">
+                                <label for="masterFullName">To'liq ism</label>
+                                <input type="text" id="masterFullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterEmail">Email</label>
+                                <input type="email" id="masterEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterPhone">Telefon raqam</label>
+                                <input type="tel" id="masterPhone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterSpecialty">Mutaxassislik</label>
+                                <select id="masterSpecialty" name="specialty" required>
+                                    <!-- Specialties will be loaded dynamically -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterExperience">Tajriba (yil)</label>
+                                <input type="number" id="masterExperience" name="experience" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterPassword">Parol</label>
+                                <input type="password" id="masterPassword" name="password">
+                                <small>Mavjud master uchun bo'sh qoldirilsa, parol o'zgartirilmaydi</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="masterStatus">Status</label>
+                                <select id="masterStatus" name="status" required>
+                                    <option value="active">Faol</option>
+                                    <option value="inactive">Nofaol</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Saqlash</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="statistics" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Statistika</h2>
+                </div>
+                <div class="stats-filter">
+                    <div class="filter-group">
+                        <label for="statsDateRange">Vaqt oralig'i:</label>
+                        <select id="statsDateRange">
+                            <option value="week">Shu hafta</option>
+                            <option value="month" selected>Shu oy</option>
+                            <option value="quarter">Shu chorak</option>
+                            <option value="year">Shu yil</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm" id="refreshStats"><i class="fas fa-sync-alt"></i> Yangilash</button>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card wide">
+                        <h3>Buyurtmalar dinamikasi</h3>
+                        <div class="chart-container">
+                            <canvas id="ordersTimeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Eng ko'p so'ralgan xizmatlar</h3>
+                        <div class="chart-container">
+                            <canvas id="topServicesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Hududlar bo'yicha buyurtmalar</h3>
+                        <div class="chart-container">
+                            <canvas id="regionOrdersChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card wide">
+                        <h3>Foydalanuvchilar o'sishi</h3>
+                        <div class="chart-container">
+                            <canvas id="usersGrowthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Masterlar reytingi</h3>
+                        <div class="chart-container">
+                            <canvas id="mastersRatingChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Buyurtmalar statusi</h3>
+                        <div class="chart-container">
+                            <canvas id="ordersStatusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="messages" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Xabarlar</h2>
+                </div>
+                <div class="messages-filter">
+                    <div class="filter-group">
+                        <label for="messageStatusFilter">Status:</label>
+                        <select id="messageStatusFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="new">Yangi</option>
+                            <option value="read">O'qilgan</option>
+                            <option value="replied">Javob berilgan</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="messageTypeFilter">Turi:</label>
+                        <select id="messageTypeFilter">
+                            <option value="all">Barchasi</option>
+                            <option value="admin">Admin uchun</option>
+                            <option value="master">Master uchun</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="messageSearch" placeholder="Qidirish...">
+                        <button class="btn btn-sm" id="messageSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="messages-list" id="messagesList">
+                    <!-- Messages will be loaded dynamically -->
+                </div>
+
+                <div id="messageModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Xabar ma'lumotlari</h2>
+                        <div id="messageDetails">
+                            <!-- Message details will be loaded dynamically -->
+                        </div>
+                        <div class="message-reply">
+                            <h3>Javob berish</h3>
+                            <form id="replyForm">
+                                <input type="hidden" id="messageId" name="messageId">
+                                <div class="form-group">
+                                    <textarea id="replyMessage" name="reply" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Yuborish</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 XizmatPro. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

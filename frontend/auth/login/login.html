@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish - Xizmatlar Boshqaruv Tizimi</title>
+    <link rel="stylesheet" href="../../home/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Bosh sahifa</a></li>
+                    <li><a href="login.html" class="active">Kirish</a></li>
+                    <li><a href="register.html">Ro'yxatdan o'tish</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-form-container">
+                    <h2>Tizimga kirish</h2>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Parol</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Meni eslab qolish</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Kirish</button>
+                    </form>
+                    <div class="auth-links">
+                        <a href="#">Parolni unutdingizmi?</a>
+                        <p>Hisobingiz yo'qmi? <a href="register.html">Ro'yxatdan o'ting</a></p>
+                    </div>
+                </div>
+                <div class="auth-image">
+                    <img src="/placeholder.svg?height=500&width=600" alt="Kirish rasmi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>XizmatPro</h2>
+                    <p>Sifatli xizmatlar - bir joyda</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Foydali havolalar</h3>
+                    <ul>
+                        <li><a href="index.html">Bosh sahifa</a></li>
+                        <li><a href="index.html#services">Xizmatlar</a></li>
+                        <li><a href="index.html#contact">Bog'lanish</a></li>
+                        <li><a href="login.html">Kirish</a></li>
+                        <li><a href="register.html">Ro'yxatdan o'tish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Bog'lanish</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Toshkent sh., Sergeli tumani</p>
+                    <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@xizmatpro.uz</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 XizmatPro. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
