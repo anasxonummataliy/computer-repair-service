@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish - Xizmatlar Portali</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Bosh sahifa</a></li>
+                    <li><a href="index.html#services">Xizmatlar</a></li>
+                    <li><a href="index.html#benefits">Afzalliklar</a></li>
+                    <li><a href="index.html#contact">Aloqa</a></li>
+                    <li><a href="login.html" class="btn-login">Kirish</a></li>
+                    <li><a href="register.html" class="btn-register active">Ro'yxatdan o'tish</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <h2>Ro'yxatdan o'tish</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="fullName">To'liq ism</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon raqam</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+998 XX XXX XX XX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Parol</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Parolni tasdiqlang</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">Foydalanuvchi turi</label>
+                        <select id="userType" name="userType">
+                            <option value="regular">Oddiy foydalanuvchi</option>
+                            <option value="business">Biznes foydalanuvchi</option>
+                        </select>
+                    </div>
+                    <div id="businessFields" class="hidden">
+                        <div class="form-group">
+                            <label for="companyName">Kompaniya nomi</label>
+                            <input type="text" id="companyName" name="companyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyAddress">Kompaniya manzili</label>
+                            <input type="text" id="companyAddress" name="companyAddress">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Ro'yxatdan o'tish</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Allaqachon ro'yxatdan o'tganmisiz? <a href="login.html">Kirish</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>XizmatPro</h2>
+                    <p>Sifatli xizmatlar - bir joyda</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Sahifalar</h3>
+                    <ul>
+                        <li><a href="index.html">Bosh sahifa</a></li>
+                        <li><a href="index.html#services">Xizmatlar</a></li>
+                        <li><a href="index.html#benefits">Afzalliklar</a></li>
+                        <li><a href="index.html#contact">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Xizmatlar</h3>
+                    <ul>
+                        <li><a href="#">Uy ta'mirlash</a></li>
+                        <li><a href="#">Elektr xizmatlari</a></li>
+                        <li><a href="#">Santexnika</a></li>
+                        <li><a href="#">Tozalash</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Aloqa</h3>
+                    <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@xizmatpro.uz</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 XizmatPro. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <p>Ro'yxatdan muvaffaqiyatli o'tdingiz!</p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

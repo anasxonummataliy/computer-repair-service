@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biznes kabineti - Xizmatlar Portali</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="logo">
+                <h1>XizmatPro</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span id="companyName">Kompaniya</span>
+                    <img src="/placeholder.svg?height=40&width=40" alt="Kompaniya" class="user-avatar">
+                </div>
+                <div class="dropdown-menu">
+                    <a href="business-profile.html"><i class="fas fa-building"></i> Kompaniya</a>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="business-dashboard.html"><i class="fas fa-home"></i> Asosiy</a>
+                    </li>
+                    <li>
+                        <a href="business-company.html"><i class="fas fa-building"></i> Kompaniya</a>
+                    </li>
+                    <li>
+                        <a href="business-employees.html"><i class="fas fa-users"></i> Xodimlar</a>
+                    </li>
+                    <li>
+                        <a href="business-orders.html"><i class="fas fa-clipboard-list"></i> Buyurtmalar</a>
+                    </li>
+                    <li>
+                        <a href="business-reports.html"><i class="fas fa-chart-bar"></i> Hisobotlar</a>
+                    </li>
+                    <li>
+                        <a href="business-contact.html"><i class="fas fa-envelope"></i> Aloqa</a>
+                    </li>
+                    <li class="cabinet-link">
+                        <a href="#" id="cabinetLink"><i class="fas fa-door-open"></i> Shaxsiy kabinet</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <div class="dashboard-header">
+                <h2>Xush kelibsiz, <span id="companyNameHeader">Kompaniya</span>!</h2>
+                <p>Kompaniyangiz ma'lumotlarini boshqaring</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Xodimlar</h3>
+                        <p id="employeesCount">12</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Buyurtmalar</h3>
+                        <p id="ordersCount">48</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Tugallangan</h3>
+                        <p id="completedCount">35</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Jarayonda</h3>
+                        <p id="inProgressCount">13</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="recent-orders">
+                <div class="section-header">
+                    <h3>So'nggi buyurtmalar</h3>
+                    <a href="business-orders.html" class="view-all">Barchasini ko'rish</a>
+                </div>
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Xizmat</th>
+                                <th>Mijoz</th>
+                                <th>Sana</th>
+                                <th>Status</th>
+                                <th>Master</th>
+                                <th>Amallar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <tr>
+                                <td>2001</td>
+                                <td>Uy ta'mirlash</td>
+                                <td>Aziz Rahimov</td>
+                                <td>15.05.2025</td>
+                                <td><span class="status pending">Kutilmoqda</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn-assign">Master tayinlash</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2002</td>
+                                <td>Elektr xizmatlari</td>
+                                <td>Dilshod Karimov</td>
+                                <td>10.05.2025</td>
+                                <td><span class="status in-progress">Jarayonda</span></td>
+                                <td>Bobur Aliyev</td>
+                                <td>
+                                    <button class="btn-view">Ko'rish</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2003</td>
+                                <td>Santexnika</td>
+                                <td>Gulnora Azizova</td>
+                                <td>05.05.2025</td>
+                                <td><span class="status completed">Tugallangan</span></td>
+                                <td>Jasur Toshmatov</td>
+                                <td>
+                                    <button class="btn-view">Ko'rish</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="popular-services">
+                <h3>Eng ko'p so'ralgan xizmatlar</h3>
+                <div class="chart-container">
+                    <canvas id="servicesChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="assignMasterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Master tayinlash</h3>
+            <form id="assignMasterForm">
+                <div class="form-group">
+                    <label for="masterSelect">Master</label>
+                    <select id="masterSelect" name="master" required>
+                        <option value="">Master tanlang</option>
+                        <option value="1">Bobur Aliyev</option>
+                        <option value="2">Jasur Toshmatov</option>
+                        <option value="3">Akmal Karimov</option>
+                        <option value="4">Sardor Umarov</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estimatedCompletion">Taxminiy tugatish vaqti</label>
+                    <input type="date" id="estimatedCompletion" name="estimatedCompletion" required>
+                </div>
+                <div class="form-group">
+                    <label for="assignNotes">Izoh</label>
+                    <textarea id="assignNotes" name="assignNotes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Tayinlash</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        <p>Master muvaffaqiyatli tayinlandi!</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/business-dashboard.js"></script>
+</body>
+</html>
