@@ -6,7 +6,7 @@ from app.router.auth import router as auth
 
 app = FastAPI()
 
-app.include_router()
+app.include_router(auth)
 
 app.add_middleware(
     CORSMiddleware,
