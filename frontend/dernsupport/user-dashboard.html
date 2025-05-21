@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaxsiy Kabinet - DernSupport</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-body">
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="logo">
+        <h1>Dern<span>Support</span></h1>
+      </div>
+      <div class="dashboard-nav">
+        <div class="search-bar">
+          <input type="text" placeholder="Qidirish...">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="dashboard-actions">
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="user-menu">
+            <img src="/placeholder.svg?height=40&width=40" alt="Foydalanuvchi" class="user-avatar">
+            <span class="user-name">Abdullayev Abror</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="user-dropdown">
+              <a href="#"><i class="fas fa-user"></i> Profil</a>
+              <a href="#"><i class="fas fa-cog"></i> Sozlamalar</a>
+              <a href="index.html"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Main -->
+  <main class="dashboard-main">
+    <div class="container">
+      <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+          <nav class="sidebar-nav">
+            <ul>
+              <li class="active">
+                <a href="#"><i class="fas fa-home"></i> Asosiy</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Buyurtma berish</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-history"></i> Buyurtmalar tarixi</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-user"></i> Profil</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-envelope"></i> Xabarlar</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-cog"></i> Sozlamalar</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-question-circle"></i> Yordam</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="sidebar-support">
+            <h3>Yordam kerakmi?</h3>
+            <p>Bizning qo'llab-quvvatlash xizmatimiz sizga yordam berishga tayyor</p>
+            <a href="#" class="btn btn-outline btn-sm">Bog'lanish</a>
+          </div>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+          <div class="dashboard-welcome">
+            <h2>Xush kelibsiz, Abror!</h2>
+            <p>Bugun: <span id="current-date">21-May, 2025</span></p>
+          </div>
+
+          <!-- Dashboard Stats -->
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Jami buyurtmalar</h3>
+                <p class="stat-number">12</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Jarayonda</h3>
+                <p class="stat-number">3</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Tugatilgan</h3>
+                <p class="stat-number">9</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="stat-info">
+                <h3>O'rtacha baho</h3>
+                <p class="stat-number">4.8</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Orders -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <h3>So'nggi buyurtmalar</h3>
+              <a href="#" class="btn btn-text">Barchasini ko'rish <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="orders-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Xizmat turi</th>
+                    <th>Sana</th>
+                    <th>Master</th>
+                    <th>Status</th>
+                    <th>Amallar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1234</td>
+                    <td>Noutbuk ta'mirlash</td>
+                    <td>15.05.2025</td>
+                    <td>Karimov Jasur</td>
+                    <td><span class="status-badge status-completed">Tugatilgan</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <a href="#" class="btn-icon" title="Ko'rish"><i class="fas fa-eye"></i></a>
+                        <a href="#" class="btn-icon" title="Baho berish"><i class="fas fa-star"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#1235</td>
+                    <td>Virusdan tozalash</td>
+                    <td>18.05.2025</td>
+                    <td>Aliyev Bobur</td>
+                    <td><span class="status-badge status-in-progress">Jarayonda</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <a href="#" class="btn-icon" title="Ko'rish"><i class="fas fa-eye"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#1236</td>
+                    <td>Ma'lumotlarni tiklash</td>
+                    <td>20.05.2025</td>
+                    <td>Tayinlanmagan</td>
+                    <td><span class="status-badge status-pending">Kutilmoqda</span></td>
+                    <td>
+                      <div class="table-actions">
+                        <a href="#" class="btn-icon" title="Ko'rish"><i class="fas fa-eye"></i></a>
+                        <a href="#" class="btn-icon" title="Bekor qilish"><i class="fas fa-times"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- New Order Form -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <h3>Yangi buyurtma berish</h3>
+            </div>
+            <div class="order-form-container">
+              <form id="newOrderForm" class="order-form">
+                <div class="form-group">
+                  <label for="service-type">Xizmat turi</label>
+                  <select id="service-type" name="service_type" required>
+                    <option value="">Tanlang</option>
+                    <option value="laptop_repair">Noutbuk ta'mirlash</option>
+                    <option value="pc_repair">Kompyuter ta'mirlash</option>
+                    <option value="virus_removal">Viruslardan tozalash</option>
+                    <option value="parts_replacement">Qismlarni almashtirish</option>
+                    <option value="network_setup">Tarmoq sozlash</option>
+                    <option value="data_recovery">Ma'lumotlarni tiklash</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Xizmat turi</label>
+                    <div class="checkbox-group">
+                      <div class="checkbox-item">
+                        <input type="checkbox" id="order-hardware" name="service_category" value="hardware">
+                        <label for="order-hardware">Hardware (Qurilma)</label>
+                      </div>
+                      <div class="checkbox-item">
+                        <input type="checkbox" id="order-software" name="service_category" value="software">
+                        <label for="order-software">Software (Dasturiy ta'minot)</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="urgency">Shoshilinchlik</label>
+                    <select id="urgency" name="urgency">
+                      <option value="normal">Normal</option>
+                      <option value="urgent">Shoshilinch</option>
+                      <option value="very_urgent">Juda shoshilinch</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="problem-description">Muammo tavsifi</label>
+                  <textarea id="problem-description" name="problem_description" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="device-model">Qurilma modeli</label>
+                    <input type="text" id="device-model" name="device_model" placeholder="Misol: Lenovo ThinkPad X1">
+                  </div>
+                  <div class="form-group">
+                    <label for="preferred-date">Afzal ko'rilgan sana</label>
+                    <input type="date" id="preferred-date" name="preferred_date">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="additional-notes">Qo'shimcha ma'lumotlar</label>
+                  <textarea id="additional-notes" name="additional_notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Buyurtma berish</button>
+                  <button type="reset" class="btn btn-outline">Tozalash</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <h3>Aloqa formasi</h3>
+            </div>
+            <div class="contact-form-container">
+              <form id="dashboardContactForm" class="contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contact-recipient">Qabul qiluvchi</label>
+                    <select id="contact-recipient" name="recipient" required>
+                      <option value="master">Master</option>
+                      <option value="admin">Administrator</option>
+                      <option value="support">Qo'llab-quvvatlash xizmati</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-subject">Mavzu</label>
+                    <input type="text" id="contact-subject" name="subject" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="contact-message">Xabar</label>
+                  <textarea id="contact-message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Yuborish</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 DernSupport. Barcha huquqlar himoyalangan.</p>
+        <div class="footer-links">
+          <a href="#">Maxfiylik siyosati</a>
+          <a href="#">Foydalanish shartlari</a>
+          <a href="#">Yordam</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
