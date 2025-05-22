@@ -190,6 +190,9 @@ header .container {
   align-items: center;
   padding: 15px 20px;
 }
+.logo{
+  cursor: pointer;
+}
 
 .logo h1 {
   font-size: 1.8rem;
