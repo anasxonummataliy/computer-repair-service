@@ -386,53 +386,51 @@ nav {
 }
 
 /* Contact Section */
-.contact {
+.book {
   padding: 80px 0;
   background-color: var(--light-color);
 }
 
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.book-wrapper {
   gap: 40px;
 }
 
-.contact-info {
+.book-info {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
 }
 
-.contact-item {
+.book-item {
   display: flex;
   align-items: flex-start;
   gap: 15px;
 }
 
-.contact-item i {
+.book-item i {
   font-size: 1.5rem;
   color: var(--primary-color);
   margin-top: 5px;
 }
 
-.contact-item h3 {
+.book-item h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
   color: var(--dark-color);
 }
 
-.contact-item p {
+.book-item p {
   color: var(--gray-color);
 }
 
-.contact-form {
+.book-form {
   background-color: white;
   padding: 30px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
 
-.contact-form h3 {
+.book-form h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: var(--dark-color);
@@ -474,14 +472,14 @@ textarea {
   resize: vertical;
 }
 
-.checkbox-group,
+
 .radio-group {
   display: flex;
   gap: 20px;
   margin-top: 5px;
 }
 
-.checkbox-item,
+
 .radio-item {
   display: flex;
   align-items: center;
@@ -493,7 +491,7 @@ textarea {
   width: auto;
 }
 
-.checkbox-item label,
+
 .radio-item label {
   margin-bottom: 0;
   font-weight: normal;
@@ -547,7 +545,7 @@ footer {
 }
 
 .footer-links a,
-.footer-services li {
+.footer-services li a {
   color: var(--gray-light);
   transition: var(--transition);
 }
@@ -1109,10 +1107,6 @@ tbody tr:hover {
 
   .hero-buttons {
     justify-content: center;
-  }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr;
   }
 
   .auth-container {

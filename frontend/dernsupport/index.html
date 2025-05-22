@@ -19,7 +19,6 @@
           <li><a href="#home" class="active">Bosh sahifa</a></li>
           <li><a href="#services">Xizmatlar</a></li>
           <li><a href="#advantages">Afzalliklar</a></li>
-          <li><a href="#contact">Aloqa</a></li>
         </ul>
         <div class="auth-buttons">
           <a href="login.html" class="btn btn-outline">Kirish</a>
@@ -42,7 +41,7 @@
         <p>DernSupport - zamonaviy texnologiyalar bilan kompyuter va noutbuk muammolarini tezkor va sifatli hal qiladi</p>
         <div class="hero-buttons">
           <a href="#services" class="btn btn-primary">Xizmatlarimiz</a>
-          <a href="#contact" class="btn btn-outline">Bog'lanish</a>
+          <a href="#book" class="btn btn-outline">Buyurtma berish</a>
         </div>
       </div>
       <div class="hero-image">
@@ -151,76 +150,40 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <!-- book Section -->
+  <section id="book" class="book">
     <div class="container">
-      <div class="section-header">
-        <h2>Biz bilan bog'laning</h2>
-        <p>Savollaringiz bo'lsa yoki xizmat buyurtma qilmoqchi bo'lsangiz</p>
-      </div>
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h3>Manzil</h3>
-              <p>Toshkent sh., Sergeli tumani, Navro'z ko'chasi, 45-uy</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h3>Telefon</h3>
-              <p>+998 90 123 45 67</p>
-              <p>+998 71 234 56 78</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h3>Email</h3>
-              <p>info@dernsupport.uz</p>
-              <p>support@dernsupport.uz</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-clock"></i>
-            <div>
-              <h3>Ish vaqti</h3>
-              <p>Dushanba - Shanba: 9:00 - 18:00</p>
-              <p>Yakshanba: Dam olish kuni</p>
-            </div>
-          </div>
-        </div>
-        <div class="contact-form">
-          <h3>Xabar qoldiring</h3>
-          <form id="contactForm">
+      <div class="book-wrapper">
+        <div class="book-form">
+          <h3>Qurilmangizda muammo bormi?</h3>
+          <form id="bookForm">
             <div class="form-group">
-              <label for="name">Ism</label>
-              <input type="text" id="name" name="name" required>
+              <label for="model">Qurilmangiz modelini kiriting.</label>
+              <input type="text" id="model" name="model" placeholder="Masalan : Macbook Pro M1 2020" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <label for="email">Email manzilingizni kiriting.</label>
+              <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
             </div>
             <div class="form-group">
-              <label for="subject">Mavzu</label>
-              <input type="text" id="subject" name="subject" required>
+              <label for="problem">Qurilmangizni qayerida muammo bor?</label>
+              <input type="text" id="problem" name="problem" placeholder="Masalan : Display, Klavatura " required>
             </div>
+        
             <div class="form-group">
-              <label for="message">Xabar</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <label for="message">Tavsif</label>
+              <textarea id="message" name="message" placeholder="Muammo haqida batafsil yozing..." rows="5"  required></textarea>
             </div>
             <div class="form-group">
               <label>Xizmat turi</label>
-              <div class="checkbox-group">
-                <div class="checkbox-item">
-                  <input type="checkbox" id="hardware" name="service_type" value="hardware">
-                  <label for="hardware">Hardware (Qurilma)</label>
+              <div class="radio-group">
+                <div class="radio-item">
+                  <input type="radio" id="hardware" name="service_type" value="hardware">
+                  <label for="hardware">Hardware</label>
                 </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="software" name="service_type" value="software">
-                  <label for="software">Software (Dasturiy ta'minot)</label>
+                <div class="radio-item">
+                  <input type="radio" id="software" name="service_type" value="software">
+                  <label for="software">Software</label>
                 </div>
               </div>
             </div>
@@ -245,7 +208,6 @@
             <li><a href="#home">Bosh sahifa</a></li>
             <li><a href="#services">Xizmatlar</a></li>
             <li><a href="#advantages">Afzalliklar</a></li>
-            <li><a href="#contact">Aloqa</a></li>
             <li><a href="login.html">Kirish</a></li>
             <li><a href="register.html">Ro'yxatdan o'tish</a></li>
           </ul>
@@ -259,6 +221,15 @@
             <li>Qismlarni almashtirish</li>
             <li>Tarmoq sozlash</li>
             <li>Ma'lumotlarni tiklash</li>
+          </ul>
+        </div>
+        <div class="footer-services">
+          <h3>Biz bilan bog'lanish</h3>
+          <ul>
+            <li><a href="mailto:aummataliye@gmail.com">Email</a></li>
+            <li><a href="tel:+998940581306">(+998) 94-058-13-06</a></li>
+            <li><a href="tel:+998712345678">(+998) 71-234-56-78</a></li>
+            
           </ul>
         </div>
 
