@@ -1,4 +1,4 @@
-/* Base Styles */
+
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -533,8 +533,7 @@ footer {
 }
 
 .footer-links h3,
-.footer-services h3,
-.footer-social h3 {
+.footer-services h3{
   font-size: 1.2rem;
   margin-bottom: 20px;
   color: white;
@@ -659,12 +658,7 @@ footer {
   color: var(--gray-color);
 }
 
-.social-login {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-}
+
 
 .auth-footer {
   text-align: center;

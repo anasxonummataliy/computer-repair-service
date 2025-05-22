@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile Menu Toggle
   const hamburger = document.querySelector(".hamburger")
   const navLinks = document.querySelector(".nav-links")
   const authButtons = document.querySelector(".auth-buttons")
@@ -17,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   }
-
-  // Password Toggle
   const togglePassword = document.querySelectorAll(".toggle-password")
 
   togglePassword.forEach((toggle) => {
@@ -36,26 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-
-  // Form Validation
   const contactForm = document.getElementById("contactForm")
   const loginForm = document.getElementById("loginForm")
   const registerForm = document.getElementById("registerForm")
   const newOrderForm = document.getElementById("newOrderForm")
   const dashboardContactForm = document.getElementById("dashboardContactForm")
 
-  // Contact Form Validation
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault()
-
-      // Simple validation
       const name = document.getElementById("name").value
       const email = document.getElementById("email").value
       const message = document.getElementById("message").value
 
       if (name && email && message) {
-        // Show success message
         alert("Xabaringiz muvaffaqiyatli yuborildi!")
         contactForm.reset()
       } else {
