@@ -1,5 +1,5 @@
 from argon2 import verify_password
-from fastapi import APIRouter, Depends, HTTPException, logger
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from sqlalchemy import select
 
@@ -7,8 +7,9 @@ from app.database.models.users import User
 from app.schemas.auth import UserCreate, UserLogin, UserResponse
 from app.database.session import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
+from backend.app.core.logger import logger
 
-from backend.app.core.untils import hash_password, 
+from backend.app.core.untils import hash_password
 from backend.app.core.security.jwt import create_jwt_token
 
 
@@ -26,9 +27,10 @@ async def registration(
     try:
         smtm = select(User).where(User.email == user_in.email)
         result = await db.execute(smtm)
-        existing_user = result.scalar_one_or_none()
+        db_user = result.scalar_one_or_none()
 
-        if existing_user:
+        if db_user is not None:
+            logger.warning("Bu email ro'yxatdan o'tgan")
             raise HTTPException(
                 status_code=409, detail="Bu email ro'yxatdan o'tgan")
         
@@ -37,11 +39,12 @@ async def registration(
         db.add(new_user)
         await db.commit()
 
-        token = create_jwt_token(user_in.id)
+        token = create_jwt_token(new_user.id)
         response = JSONResponse(
             content={
                 "message": "Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tdi",
-                "userId": user_in.id,
+                "userId": new_user.id,
+                'token': token
             },
             status_code=201
         )
