@@ -1,16 +1,15 @@
-from argon2 import verify_password
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import JSONResponse
 from sqlalchemy import select
-
-from app.database.models.users import User
-from app.schemas.auth import UserCreate, UserLogin, UserResponse
-from app.database.session import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
-from backend.app.core.logger import logger
+from argon2.exceptions import VerificationError
+from fastapi import APIRouter, Cookie, Depends, HTTPException, Header
+from fastapi.responses import JSONResponse
 
-from backend.app.core.untils import hash_password
-from backend.app.core.security.jwt import create_jwt_token
+from app.core.logger import logger
+from app.core.security.jwt import create_jwt_token, decode_jwt_token
+from app.database.session import get_async_session, get_db
+from app.database.models.users import User
+from app.core.untils import hash_password, verify_password
+from app.schemas.auth import UserCreate, UserLogin, UserResponse
 
 
 router = APIRouter(
@@ -19,10 +18,10 @@ router = APIRouter(
 )
 
 
-@router.get('/register')
+@router.post("/register")
 async def registration(
     user_in: UserCreate,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_async_session)
 ):
     try:
         smtm = select(User).where(User.email == user_in.email)
@@ -30,10 +29,9 @@ async def registration(
         db_user = result.scalar_one_or_none()
 
         if db_user is not None:
-            logger.warning("Bu email ro'yxatdan o'tgan")
             raise HTTPException(
-                status_code=409, detail="Bu email ro'yxatdan o'tgan")
-        
+                detail="Bu email allaqachon ro'yhatdan o'tgan.", status_code=400
+            )
         user_in.password = hash_password(user_in.password)
         new_user = User(**user_in.model_dump())
         db.add(new_user)
@@ -41,33 +39,22 @@ async def registration(
 
         token = create_jwt_token(new_user.id)
         response = JSONResponse(
-            content={
-                "message": "Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tdi",
-                "userId": new_user.id,
-                'token': token
-            },
-            status_code=201
-        )
-       
+            content={"message": "Siz muvafaqiyatli ro'yxatdan o'tdingiz"})
         response.set_cookie(
             key="token",
             value=token,
             httponly=True,
-            max_age=30 * 24 * 60 * 60,  
-            samesite="strict",
-            secure=False  
+            secure=True,
+            samesite="Lax",
+            max_age=60 * 60 * 24 * 30,
         )
-
         return response
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Serverda xatolik yuz berdi")
+    except VerificationError as e:
+        raise HTTPException(detail=f"Password error: {e}", status_code=500)
 
 
 @router.post('/login')
-async def login(
-    user_in: UserLogin,
-    db : AsyncSession = Depends(get_db)
-):
+async def login(user_in: UserLogin, db: AsyncSession = Depends(get_db)):
     try:
         stmt = select(User).where(User.email == user_in.email)
         result = await db.execute(stmt)
@@ -81,10 +68,34 @@ async def login(
         if verify_password(db_user.password, user_in.password):
             logger.info("Kirish muvafaqiyatli amalga oshirildi.")
             token = create_jwt_token(db_user.id)
-            return JSONResponse(content={"message": "", "token": token})
+            response = JSONResponse(
+                content={"message": "Siz muvafaqiyatli ro'yxatdan o'tdingiz"})
+            response.set_cookie(
+                key="token",
+                value=token,
+                httponly=True,
+                secure=True,
+                samesite="Lax",
+                max_age=60 * 60 * 24 * 30,
+            )
+            return response
         raise HTTPException(detail="Ma'lumotlar xato")
-
-     
+    except VerificationError as e:
+        logger.warning(f"Password error: {e}")
+        raise HTTPException(detail="Parol xato", status_code=400)
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Serverda xatolik yuz berdi")
+        logger.error("Parolni tekshirish imkoni bo'lmadi.")
+        raise HTTPException(detail=f"Server error: {e}", status_code=500)
 
+
+@router.get("/me", response_model=UserResponse)
+async def get_me(token: str = Cookie(None), db: AsyncSession = Depends(get_db)):
+    user_id = decode_jwt_token(token)
+
+    stmt = select(User).where(User.id == user_id)
+    result = await db.execute(stmt)
+    db_user = result.scalar_one_or_none()
+
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="Foydalanuvchi topilmadi")
+    return db_user
