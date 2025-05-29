@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -8,10 +9,11 @@ class ComponentCreate(BaseModel):
     quantity: int
 
 
-class ComponentResponse(BaseModel):
-    id: int
-    name: str
-    description: str
-    price: float
+class ComponentResponse(ComponentCreate):
+    id: str
+    createdAt: datetime
+
+
+class ComponentUsed(BaseModel):
+    componentId: str
     quantity: int
-    created_at: str
