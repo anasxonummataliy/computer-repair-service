@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DernSupport - Kompyuter va Noutbuk Xizmatlari</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <h1 onclick="window.location.href='./index.html'">Dern<span>Support</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Bosh sahifa</a></li>
+                    <li><a href="#services">Xizmatlar</a></li>
+                    <li><a href="#about">Biz haqimizda</a></li>
+                    <li><a href="#contact">Aloqa</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Kirish</a>
+                    <a href="register.html" class="btn btn-primary">Ro'yxatdan o'tish</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Kompyuter va noutbuk xizmatlarining ishonchli hamkori</h1>
+                <p>DernSupport - zamonaviy texnologiyalar bilan kompyuter va noutbuk muammolarini tezkor va sifatli hal
+                    qiladi</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Xizmatlarimiz</a>
+                    <button class="btn btn-outline" onclick="openBookModal()">Buyurtma berish</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./image/mobile-computer-repair.avif" alt="Kompyuter xizmatlari">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bizning Xizmatlar</h2>
+                <p>Kompyuter va noutbuklar uchun professional xizmatlar</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3>Noutbuk Ta'mirlash</h3>
+                    <p>Barcha turdagi noutbuklarni tezkor va sifatli ta'mirlash xizmati</p>
+                    <span class="price">Narxi: 150,000 so'mdan</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Kompyuter Ta'mirlash</h3>
+                    <p>Stol kompyuterlarini diagnostika va ta'mirlash xizmatlari</p>
+                    <span class="price">Narxi: 200,000 so'mdan</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-virus-slash"></i>
+                    </div>
+                    <h3>Viruslardan Tozalash</h3>
+                    <p>Kompyuter va noutbuklarni viruslardan tozalash va himoya o'rnatish</p>
+                    <span class="price">Narxi: 100,000 so'mdan</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>Qismlarni Almashtirish</h3>
+                    <p>Kompyuter va noutbuk qismlarini almashtirish va yangilash</p>
+                    <span class="price">Narxi: 250,000 so'mdan</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Tarmoq Sozlash</h3>
+                    <p>Ofis va uy tarmoqlarini o'rnatish va sozlash xizmatlari</p>
+                    <span class="price">Narxi: 300,000 so'mdan</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Ma'lumotlarni Tiklash</h3>
+                    <p>Yo'qolgan ma'lumotlarni tiklash va zaxiralash xizmatlari</p>
+                    <span class="price">Narxi: 400,000 so'mdan</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Biz Haqimizda</h2>
+                <p>DernSupport - kompyuter va noutbuk xizmatlarida yetakchi kompaniya</p>
+            </div>
+            <div class="about-content-new">
+                <div class="about-text-left">
+                    <h3>Bizning Missiyamiz</h3>
+                    <p>Biz mijozlarimizga eng yuqori sifatli kompyuter va noutbuk xizmatlarini taqdim etishga intilamiz.
+                        Har bir mijozning ehtiyojlarini tushunib, individual yondashuvni ta'minlaymiz.</p>
+                </div>
+                <div class="about-text-right">
+                    <h3>Tajriba va Malaka</h3>
+                    <p>5 yildan ortiq tajribaga ega bo'lgan mutaxassislarimiz barcha turdagi kompyuter va noutbuk
+                        muammolarini hal qilishda malakali. Biz zamonaviy texnologiyalar va asboblardan foydalanamiz.
+                    </p>
+                </div>
+            </div>
+            <div class="stats-center">
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Mamnun mijozlar</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Ta'mirlangan qurilmalar</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Qo'llab-quvvatlash</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bizning Afzalliklar</h2>
+                <p>Nima uchun mijozlar bizni tanlashadi</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Tezkor Xizmat</h3>
+                    <p>Ko'pchilik muammolar 24 soat ichida hal qilinadi</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Sifat Kafolati</h3>
+                    <p>Barcha xizmatlarimizga 3 oylik kafolat beriladi</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Professional Jamoa</h3>
+                    <p>Tajribali va sertifikatlangan mutaxassislar</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Qulay Narxlar</h3>
+                    <p>Bozordagi eng raqobatbardosh narxlar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Modal -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content book-modal-content">
+            <div class="modal-header">
+                <h2>Qurilmangizda muammo bormi?</h2>
+                <span class="close" onclick="closeBookModal()">&times;</span>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Ismingiz *</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Ismingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Familiyangiz *</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Familiyangizni kiriting" required>
+                </div>
+            </div>
+            <form id="bookForm" class="modal-form">
+                <div class="form-group">
+                    <label for="model">Qurilmangiz modelini kiriting.</label>
+                    <input type="text" id="model" name="model" placeholder="Masalan : Macbook Pro M1 2020" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email manzilingizni kiriting.</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="problem">Qurilmangizni qayerida muammo bor?</label>
+                    <input type="text" id="problem" name="problem" placeholder="Masalan : Display, Klavatura " required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tavsif</label>
+                    <textarea id="message" name="message" placeholder="Muammo haqida batafsil yozing..." rows="4"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Xizmat turi</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="hardware" name="service_type" value="hardware">
+                            <label for="hardware">Hardware</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="software" name="service_type" value="software">
+                            <label for="software">Software</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Joylashuv</label>
+                    <input type="text" id="location" name="location" placeholder="Masalan : Toshkent, Yunusobod tumani"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Buyurtma Yuborish</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Biz Bilan Bog'lanish</h2>
+                <p>Savollaringiz bormi? Biz bilan bog'laning!</p>
+            </div>
+            <div class="contact-content-simple">
+                <div class="contact-info-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+998940581306">(+998) 94-058-13-06</a></p>
+                            <p><a href="tel:+998712345678">(+998) 71-234-56-78</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:aummataliye@gmail.com">aummataliye@gmail.com</a></p>
+                            <p><a href="mailto:support@dernsupport.uz">support@dernsupport.uz</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Manzil</h4>
+                            <p>Toshkent shahar</p>
+                            <p>Yunusobod tumani</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ish vaqti</h4>
+                            <p>Dushanba - Juma: 9:00 - 18:00</p>
+                            <p>Shanba: 10:00 - 16:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Dern<span>Support</span></h2>
+                    <p>Kompyuter va noutbuk xizmatlarining ishonchli hamkori</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Tezkor havolalar</h3>
+                    <ul>
+                        <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#services">Xizmatlar</a></li>
+                        <li><a href="#about">Biz haqimizda</a></li>
+                        <li><a href="#contact">Aloqa</a></li>
+                        <li><a href="login.html">Kirish</a></li>
+                        <li><a href="register.html">Ro'yxatdan o'tish</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Xizmatlar</h3>
+                    <ul>
+                        <li>Noutbuk ta'mirlash</li>
+                        <li>Kompyuter ta'mirlash</li>
+                        <li>Viruslardan tozalash</li>
+                        <li>Qismlarni almashtirish</li>
+                        <li>Tarmoq sozlash</li>
+                        <li>Ma'lumotlarni tiklash</li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Biz bilan bog'lanish</h3>
+                    <ul>
+                        <li><a href="mailto:aummataliye@gmail.com">Email</a></li>
+                        <li><a href="tel:+998940581306">(+998) 94-058-13-06</a></li>
+                        <li><a href="tel:+998712345678">(+998) 71-234-56-78</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DernSupport. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
