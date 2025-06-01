@@ -1,40 +1,24 @@
-from datetime import datetime
-from enum import Enum
-from typing import Optional
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
+from typing import Optional, Literal
+from bson import ObjectId
 
-
-class UserRole(str, Enum):
-    USER = "user"
-    MASTER = "master"
-    MANAGER = "manager"
-
-
-class UserBase(BaseModel):
+class UserRegister(BaseModel):
+    first_name: str
+    last_name: str
     email: EmailStr
-    firstName: str
-    lastName: str
-
-class UserCreate(UserBase):
+    phone: str
     password: str
-    isLegalEntity: Optional[bool] = False
-    companyName: Optional[str] = None
-
-
-class UserUpdate(BaseModel):
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    password: Optional[str] = None
-
+    person_type: Literal['individual', 'legal']
+    company_name: Optional[str] = None
 
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
 
-
-class UserResponse(UserBase):
-    id: str
-    role: UserRole
-    isLegalEntity: Optional[bool] = False
-    companyName: Optional[str] = None
-    createdAt: Optional[datetime] = None
+class UserOut(BaseModel):
+    first_name: str
+    last_name: str
+    email: EmailStr
+    phone: str
+    person_type: str
+    company_name: Optional[str]
